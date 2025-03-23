@@ -1,0 +1,137 @@
+body {
+    font-family: sans-serif, 'Segoe UI', Tahoma, Verdana;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    color: crimson;
+    font-size: 3vh;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Nunito',;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid gainsboro;
+    padding: 5px 5px;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.where {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.where:hover {
+    background-color: #f0f0f0;
+}
+
+.first {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.second {
+    font-size: 12px;
+    color: #666;
+}
+
+.search-icon {
+    background-color: #ff385c;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-icon img {
+    height: 16px;
+}
+
+.search-icon:hover {
+    background-color: #eb2745;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.home-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.world-icon {
+    height: 24px;
+    cursor: pointer;
+}
+
+.profile {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-icon {
+    height: 24px;
+}
+.profile-icon:hover{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
