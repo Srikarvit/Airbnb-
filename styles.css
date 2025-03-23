@@ -5,7 +5,7 @@ body {
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }
@@ -16,7 +16,8 @@ a{
     align-items: center;
     padding: 10px 20px;
     border-bottom: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .left {
@@ -30,21 +31,20 @@ a{
 }
 
 .brand-name {
-    color: crimson;
-    font-size: 3vh;
+    color: rgb(232, 48, 85);
+    font-size: 20px;
     font-weight: bold;
     margin: 0;
-    font-family: 'Nunito',;
 }
 
 .center {
     display: flex;
     align-items: center;
     background-color: white;
-    border: 1px solid gainsboro;
-    padding: 5px 5px;
+    border: 1px solid #ddd;
     border-radius: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .where {
@@ -90,7 +90,7 @@ a{
 }
 
 .search-icon:hover {
-    background-color: #eb2745;
+    background-color: #e60023;
 }
 
 .right {
@@ -116,6 +116,13 @@ a{
 .world-icon {
     height: 24px;
     cursor: pointer;
+    border-radius: 50%;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.world-icon:hover {
+    background-color: #f0f0f0;
 }
 
 .profile {
@@ -127,11 +134,60 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: box-shadow 0.3s ease;
 }
 
 .profile-icon {
     height: 24px;
 }
-.profile-icon:hover{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+.profile:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+.icn {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin-left: 3vh;
+}
+
+.icn img {
+    max-width: 80px;
+    max-height: 80px;
+    cursor: pointer;
+    object-fit: fill;
+    justify-content: space-evenly;
+    transition: border-bottom 0.3s ease;
+}
+
+.icn img:hover {
+    border-bottom: 2px solid gainsboro;
+}
+
+.fil {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 6vh;
+}
+
+.fil:hover {
+    background-color: #f0f0f0;
 }
