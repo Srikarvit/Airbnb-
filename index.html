@@ -38,18 +38,24 @@
         </div>
         <div class="right">
             <button class="home-btn"><a href="#">Airbnb your home</a></button>
-            <a href="#"><img src="icons8-world-24.png" alt="Change language" class="world-icon"></a>
-            <button class="profile" aria-label="Profile options">
-                <img src="profile.png" alt="Profile" class="profile-icon">
-            </button>
+            <a href="#"><img src="icons8-world-24.png" alt="Change language" class="world-icon"></a>    
+            <div class="dropdown profile" aria-label="Profile options">
+                <button class="dropdown-button" onclick="toggleDropdown()"> <img src="profile.png" alt="Profile" class="profile-icon"></button>
+                <div class="dropdown-menu">
+                    <a href="#">Sign up</a>
+                    <a href="#">Log in</a>
+                    <a href="#">Airbnb your home</a>
+                    <a href="#">Host an experience</a>
+                    <a href="#">Help Centre</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <nav class="nav">
-        <div class="icn">
-            <img src="Amazingview .png" alt="Amazing Views">
-            <img src="Icons.png" alt="Icons">
+        <div class="icn">            
             <img src="AmazingPools.png" alt="Amazing Pools">
+            <img src="Icons.png" alt="Icons">
             <img src="Farms.png" alt="Farms">
             <img src="Offthegrid.png" alt="Off The Grid">
             <img src="Trending.png" alt="Trending">
@@ -57,6 +63,7 @@
             <img src="Beachfront.png" alt="Beachfront">
             <img src="Lakefront.png" alt="Lakefront">
             <img src="Castles.png" alt="Castles">
+            <img src="Amazingview .png" alt="Amazing Views">
         </div>
         <button class="fil" aria-label="Filter options"><img src="filter-icon.png" alt="filter">Filters</button>
     </nav>
