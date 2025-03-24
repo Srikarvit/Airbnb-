@@ -3,44 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clone of Airbnb website. Explore destinations, amazing views, pools, and more.">
+    <meta name="keywords" content="Airbnb, travel, stays, clone, vacation rentals">
     <title>Airbnb Clone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="header">
+    <header class="header">
         <div class="left">
-            <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+            <a href="index.html"><img src="logo.png" alt="Airbnb logo" class="logo"></a>
             <p class="brand-name">airbnb</p>
         </div>
         <div class="center">
-            <button class="where">
+            <button class="where" aria-label="Search destination">
                 <div class="first">Where</div>
                 <div class="second">Search destinations</div>
             </button>
-            <button class="where">
+            <button class="where" aria-label="Check-in date">
                 <div class="first">Check in</div>
                 <div class="second">Add date</div>
             </button>
-            <button class="where">
+            <button class="where" aria-label="Check-out date">
                 <div class="first">Check out</div>
                 <div class="second">Add date</div>
             </button>
-            <button class="where">
+            <button class="where" aria-label="Add guests">
                 <div class="first">Who</div>
                 <div class="second">Add guests</div>
-                <button class="search-icon"><img src="search.png" alt="search"></button>
+                <button class="search-icon" aria-label="Search">
+                    <img src="search.png" alt="Search">
+                </button>
             </button>
         </div>
         <div class="right">
             <button class="home-btn"><a href="#">Airbnb your home</a></button>
-            <a href="#"><img src="world.png" alt="language" class="world-icon"></a>
-            <button class="profile">
-                <img src="profile.png" alt="profile" class="profile-icon">
+            <a href="#"><img src="icons8-world-24.png" alt="Change language" class="world-icon"></a>
+            <button class="profile" aria-label="Profile options">
+                <img src="profile.png" alt="Profile" class="profile-icon">
             </button>
         </div>
-    </div>
+    </header>
 
-    <div class="nav">
+    <nav class="nav">
         <div class="icn">
             <img src="Amazingview .png" alt="Amazing Views">
             <img src="Icons.png" alt="Icons">
@@ -53,7 +58,75 @@
             <img src="Lakefront.png" alt="Lakefront">
             <img src="Castles.png" alt="Castles">
         </div>
-        <button class="fil">Filters</button>
+        <button class="fil" aria-label="Filter options"><img src="filter-icon.png" alt="filter">Filters</button>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1544137171-9f5cf7b0fafa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhcm1ob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 1">
+            <div class="details">
+                <h3>Anjar, India</h3>
+                <p>545 kilometres away</p>
+                <p>1–6 Apr</p>
+                <p class="price">₹1,11,456 for 5 nights</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://images.unsplash.com/photo-1547393429-098dd122091a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 2">
+            <div class="details">
+                <h3>Mandrem, India</h3>
+                <p>380 kilometres away</p>
+                <p>25–30 Apr</p>
+                <p class="price">₹37,083 for 5 nights</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
+            <div class="details">
+                <h3>Raia, India</h3>
+                <p>424 kilometres away</p>
+                <p>4–9 May</p>
+                <p class="price">₹21,682 for 5 nights</p>
+            </div>
+        </div>
+
+            <div class="card">
+                <div class="tag">Guest favourite</div>
+                <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
+                <div class="details">
+                    <h3>Raia, India</h3>
+                    <p>424 kilometres away</p>
+                    <p>4–9 May</p>
+                    <p class="price">₹21,682 for 5 nights</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="tag">Guest favourite</div>
+                <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
+                <div class="details">
+                    <h3>Raia, India</h3>
+                    <p>424 kilometres away</p>
+                    <p>4–9 May</p>
+                    <p class="price">₹21,682 for 5 nights</p>
+                </div> 
+             </div>
+
+             <div class="card">
+                <div class="tag">Guest favourite</div>
+                <img src="https://images.unsplash.com/photo-1547393429-098dd122091a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 2">
+                <div class="details">
+                    <h3>Mandrem, India</h3>
+                    <p>380 kilometres away</p>
+                    <p>25–30 Apr</p>
+                    <p class="price">₹37,083 for 5 nights</p>
+                </div>
+            </div>
+            
     </div>
 
     <script src="script.js"></script>
