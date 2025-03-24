@@ -10,6 +10,13 @@
         color: black;
     }
 
+    .details p:last-child {
+        font-size: 13px;
+        color: #666;
+        margin-top: 5px;
+        line-height: 1.4;
+    }
+
     .header {
         display: flex;
         justify-content: space-between;
@@ -63,6 +70,7 @@
     } 
     .where:hover { 
         background-color: #f0f0f0; 
+        border: 1px solid #ff385c;
     } 
 
     .first { 
@@ -156,13 +164,14 @@
         display: none;
         position: absolute;
         top: 100%;
-        right: 0;  
+        right: 0;
         background-color: white;
         min-width: 200px;
-        max-width: 90vw; 
+        max-width: 90vw;
+        max-height: 50vh; 
+        overflow-y: auto; 
         border-radius: 1vh;
-        overflow: hidden;
-        z-index: 1000; 
+        z-index: 1000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
@@ -178,7 +187,6 @@
         background-color: #f9f9f9;
     }
     
-    /* Show menu when active */
     .dropdown.active .dropdown-menu {
         display: block;
     }
@@ -191,39 +199,72 @@
         padding: 10px 20px; 
         border-bottom: 1px solid #ddd; 
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-        line-height: 1.6; 
+        line-height: 5vh; 
     } 
         
-    .icn { 
+    .icn {
         max-width: 110vh;
-        display: flex; 
-        gap: 15px; 
-        overflow-x: auto; 
-        padding: 10px 0; 
-        margin-left: 3vh; 
+        display: flex;
+        flex-direction: row; 
+        flex-wrap: nowrap; 
+        overflow-x: auto;
+        overflow-y: hidden; 
+        padding: 10px 0;
+        margin-left: 5vh;
+        gap: 1.75rem;
+        white-space: nowrap; 
+        scrollbar-width: thin; 
+        scroll-behavior: smooth;
     }
-
-    .icn img {
-        width: 20vw;
-        height: 7vh;
+    
+    .icn::-webkit-scrollbar {
+        height: 8px; 
+    }
+    
+    .icn::-webkit-scrollbar-thumb {
+        background-color: #ccc; 
+        border-radius: 10px;
+    }
+    
+    .icn::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    
+    .icon-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        min-width: 6vx; 
+        text-align: center;
+    }
+    
+    .icon-container img {
+        width: 5vh; 
+        height: 5vh;
+        padding: 5px;
         cursor: pointer;
-        object-fit: contain;
+        object-fit: contain; 
         transition: transform 0.3s ease, border-bottom 0.3s ease;
     }
-
-    .icn img:hover {
+    .icon-container:hover{
         border-bottom: 2px solid gainsboro;
     }
 
-    .where:hover {
-        background-color: #ffece8;
+    .inner {
+        margin-top: 5px;
+        font-size: 12px; 
+        font-weight: bold;
+        white-space: nowrap; 
     }
+
+    
 
     .fil {
         display: flex;
         align-items: center;
-        margin-right: 48vh;
         gap: 8px; 
+        margin-right: 26vh;
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 20px;
@@ -245,25 +286,117 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     }
 
+.filter-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
 
-    @media (max-width: 768px) {
-        .header {
-            flex-direction: column;
-            padding: 20px 10px;
-        }
-        .center {
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .nav {
-            flex-direction: column;
-            gap: 10px;
-        }
+.filter-modal.active {
+    display: flex;
+}
+
+.filter-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.filter-content h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.filter-section label {
+    display: block;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.filter-section input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.filter-section input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.clear-btn, .apply-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.clear-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.apply-btn {
+    background-color: #ff385c; 
+    color: white;
+}
+
+.apply-btn:hover {
+    background-color: #e60023;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px 10px;
     }
+    .center {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
     
     .header .nav{
-        position: sticky;
-        top: 0;
+        position: absolute;
+        top: 1;
     }
 
     .container {
@@ -283,6 +416,7 @@
         width: 250px;
         position: relative;
         cursor: pointer;
+        gap: 5vh;
         transition: all 0.3s ease-in-out;
     }
     .card:hover{

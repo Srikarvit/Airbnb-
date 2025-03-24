@@ -31,9 +31,9 @@
             <button class="where" aria-label="Add guests">
                 <div class="first">Who</div>
                 <div class="second">Add guests</div>
-                <button class="search-icon" aria-label="Search">
-                    <img src="search.png" alt="Search">
-                </button>
+            </button>
+            <button class="search-icon" aria-label="Search">
+                <img src="search.png" alt="Search">
             </button>
         </div>
         <div class="right">
@@ -54,86 +54,366 @@
 
     <nav class="nav">
         <div class="icn">            
-            <img src="AmazingPools.png" alt="Amazing Pools">
-            <img src="Icons.png" alt="Icons">
-            <img src="Farms.png" alt="Farms">
-            <img src="Offthegrid.png" alt="Off The Grid">
-            <img src="Trending.png" alt="Trending">
-            <img src="OMG!.png" alt="OMG!">
-            <img src="Beachfront.png" alt="Beachfront">
-            <img src="Lakefront.png" alt="Lakefront">
-            <img src="Castles.png" alt="Castles">
-            <img src="Amazingview.png" alt="Amazing Views">
+            <div class="icon-container">
+                <img src="AmazingPools.png" alt="Amazing Pools">
+                <div class="inner">Amazing Pools</div>
+            </div>
+            <div class="icon-container">
+                <img src="Icons.png" alt="Icons">
+                <div class="inner">Icons</div>
+            </div>
+            <div class="icon-container">
+                <img src="Farms.png" alt="Farms">
+                <div class="inner">Farms</div>
+            </div>
+            <div class="icon-container">
+                <img src="Offthegrid.png" alt="Off The Grid">
+                <div class="inner">Off The Grid</div>
+            </div>
+            <div class="icon-container">
+                <img src="Trending.png" alt="Trending">
+                <div class="inner">Trending</div>
+            </div>
+            <div class="icon-container">
+                <img src="OMG!.png" alt="OMG!">
+                <div class="inner">OMG!</div>
+            </div>
+            <div class="icon-container">
+                <img src="Beachfront.png" alt="Beachfront">
+                <div class="inner">Beachfront</div>
+            </div>
+            <div class="icon-container">
+                <img src="Lakefront.png" alt="Lakefront">
+                <div class="inner">Lakefront</div>
+            </div>
+            <div class="icon-container">
+                <img src="Castles.png" alt="Castles">
+                <div class="inner">Castles</div>
+            </div>
+            <div class="icon-container">
+                <img src="Amazingview.png" alt="Amazing Views">
+                <div class="inner">Amazing Views</div>
+            </div>
+            <div class="icon-container">
+                <img src="Topcities.png" alt="Top Cities">
+                <div class="inner">Top Cities</div>
+            </div>
+            <div class="icon-container">
+                <img src="Treehouse.png" alt="Treehouse">
+                <div class="inner">Treehouse</div>
+            </div>
+            <div class="icon-container">
+                <img src="Island.png" alt="Island">
+                <div class="inner">Island</div>
+            </div>
+            <div class="icon-container">
+                <img src="Countryside.png" alt="Countryside House">
+                <div class="inner">Countryside</div>
+            </div>
+            <div class="icon-container">
+                <img src="Mansion.png" alt="Mansion">
+                <div class="inner">Mansion</div>
+            </div>
         </div>
+        
         <button class="fil" aria-label="Filter options"><img src="filter-icon.png" alt="filter">Filters</button>
+        <div class="filter-modal" id="filterModal">
+            <div class="filter-content">
+                <h3>Filters</h3>
+                <div class="filter-section">
+                    <h4>Price Range (for 5 nights)</h4>
+                    <label for="minPrice">Min Price (₹):</label>
+                    <input type="number" id="minPrice" placeholder="0" min="0">
+                    <label for="maxPrice">Max Price (₹):</label>
+                    <input type="number" id="maxPrice" placeholder="100000" min="0">
+                </div>
+                <div class="filter-section">
+                    <h4>Property Type</h4>
+                    <label>
+                        <input type="checkbox" id="guestFavourite"> Show only Guest Favourites
+                    </label>
+                </div>
+                <div class="filter-actions">
+                    <button class="clear-btn" onclick="clearFilters()">Clear</button>
+                    <button class="apply-btn" onclick="applyFilters()">Apply</button>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="container">
+        <!-- Row 1 -->
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1544137171-9f5cf7b0fafa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZhcm1ob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 1">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Shimla Apartment">
             <div class="details">
-                <h3>Anjar, India</h3>
-                <p>545 kilometres away</p>
+                <h3>Shimla, Himachal Pradesh</h3>
+                <p>1,200 kilometres away</p>
                 <p>1–6 Apr</p>
-                <p class="price">₹1,11,456 for 5 nights</p>
+                <p class="price">₹20,000 for 5 nights</p>
+                <p>Cozy 2BHK apartment with mountain views. Perfect for a peaceful retreat in the hills.</p>
             </div>
         </div>
-
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Goa Villa">
+            <div class="details">
+                <h3>Calangute, Goa</h3>
+                <p>400 kilometres away</p>
+                <p>1–6 Apr</p>
+                <p class="price">₹35,000 for 5 nights</p>
+                <p>Modern 3BHK villa near Calangute Beach. Ideal for a beachside vacation with friends.</p>
+            </div>
+        </div>
         <div class="card">
             <div class="tag">Guest favourite</div>
-            <img src="https://images.unsplash.com/photo-1547393429-098dd122091a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 2">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Jaipur Homestay">
             <div class="details">
-                <h3>Mandrem, India</h3>
-                <p>380 kilometres away</p>
-                <p>25–30 Apr</p>
-                <p class="price">₹37,083 for 5 nights</p>
+                <h3>Jaipur, Rajasthan</h3>
+                <p>950 kilometres away</p>
+                <p>1–6 Apr</p>
+                <p class="price">₹18,000 for 5 nights</p>
+                <p>Traditional homestay in the Pink City. Explore Jaipur’s palaces with a local host.</p>
             </div>
         </div>
-
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Munnar Cottage">
+            <div class="details">
+                <h3>Munnar, Kerala</h3>
+                <p>1,000 kilometres away</p>
+                <p>1–6 Apr</p>
+                <p class="price">₹22,500 for 5 nights</p>
+                <p>Charming cottage amidst tea plantations. Enjoy misty mornings and nature walks.</p>
+            </div>
+        </div>
         <div class="card">
             <div class="tag">Guest favourite</div>
-            <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Delhi Apartment">
             <div class="details">
-                <h3>Raia, India</h3>
-                <p>424 kilometres away</p>
-                <p>4–9 May</p>
-                <p class="price">₹21,682 for 5 nights</p>
+                <h3>New Delhi, Delhi</h3>
+                <p>1,150 kilometres away</p>
+                <p>1–6 Apr</p>
+                <p class="price">₹25,000 for 5 nights</p>
+                <p>Modern 2BHK apartment in South Delhi. Close to metro and major attractions.</p>
             </div>
         </div>
-
-            <div class="card">
-                <div class="tag">Guest favourite</div>
-                <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
-                <div class="details">
-                    <h3>Raia, India</h3>
-                    <p>424 kilometres away</p>
-                    <p>4–9 May</p>
-                    <p class="price">₹21,682 for 5 nights</p>
-                </div>
+    
+        <!-- Row 2 -->
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Coorg Homestay">
+            <div class="details">
+                <h3>Coorg, Karnataka</h3>
+                <p>850 kilometres away</p>
+                <p>10–15 Apr</p>
+                <p class="price">₹28,000 for 5 nights</p>
+                <p>Cozy homestay in the heart of coffee plantations. Perfect for a nature escape.</p>
             </div>
-
-            <div class="card">
-                <div class="tag">Guest favourite</div>
-                <img src="https://images.unsplash.com/photo-1604004218771-05c55db4f9f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 3">
-                <div class="details">
-                    <h3>Raia, India</h3>
-                    <p>424 kilometres away</p>
-                    <p>4–9 May</p>
-                    <p class="price">₹21,682 for 5 nights</p>
-                </div> 
-             </div>
-
-             <div class="card">
-                <div class="tag">Guest favourite</div>
-                <img src="https://images.unsplash.com/photo-1547393429-098dd122091a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyZWVob3VzZXxlbnwwfHwwfHx8MA%3D%3D" alt="House 2">
-                <div class="details">
-                    <h3>Mandrem, India</h3>
-                    <p>380 kilometres away</p>
-                    <p>25–30 Apr</p>
-                    <p class="price">₹37,083 for 5 nights</p>
-                </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Udaipur Villa">
+            <div class="details">
+                <h3>Udaipur, Rajasthan</h3>
+                <p>800 kilometres away</p>
+                <p>10–15 Apr</p>
+                <p class="price">₹40,000 for 5 nights</p>
+                <p>Luxury 4BHK villa with lake views. Ideal for a royal experience in Udaipur.</p>
             </div>
-            
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Pune Apartment">
+            <div class="details">
+                <h3>Pune, Maharashtra</h3>
+                <p>150 kilometres away</p>
+                <p>10–15 Apr</p>
+                <p class="price">₹15,000 for 5 nights</p>
+                <p>Stylish 1BHK apartment in Koregaon Park. Close to cafes and nightlife.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Darjeeling Cottage">
+            <div class="details">
+                <h3>Darjeeling, West Bengal</h3>
+                <p>1,800 kilometres away</p>
+                <p>10–15 Apr</p>
+                <p class="price">₹22,000 for 5 nights</p>
+                <p>Quaint cottage with Himalayan views. Enjoy tea gardens and sunrise at Tiger Hill.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Chennai Apartment">
+            <div class="details">
+                <h3>Chennai, Tamil Nadu</h3>
+                <p>1,000 kilometres away</p>
+                <p>10–15 Apr</p>
+                <p class="price">₹18,500 for 5 nights</p>
+                <p>Modern 2BHK apartment in Adyar. Close to the beach and local markets.</p>
+            </div>
+        </div>
+    
+        <!-- Row 3 -->
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Ooty Homestay">
+            <div class="details">
+                <h3>Ooty, Tamil Nadu</h3>
+                <p>900 kilometres away</p>
+                <p>20–25 Apr</p>
+                <p class="price">₹24,000 for 5 nights</p>
+                <p>Charming homestay with a fireplace. Perfect for a cool hill station getaway.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Alleppey Houseboat">
+            <div class="details">
+                <h3>Alleppey, Kerala</h3>
+                <p>1,050 kilometres away</p>
+                <p>20–25 Apr</p>
+                <p class="price">₹30,000 for 5 nights</p>
+                <p>Traditional houseboat on the backwaters. Experience Kerala’s serene beauty.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Jodhpur Homestay">
+            <div class="details">
+                <h3>Jodhpur, Rajasthan</h3>
+                <p>900 kilometres away</p>
+                <p>20–25 Apr</p>
+                <p class="price">₹19,000 for 5 nights</p>
+                <p>Heritage homestay in the Blue City. Walk to Mehrangarh Fort and local bazaars.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Hyderabad Apartment">
+            <div class="details">
+                <h3>Hyderabad, Telangana</h3>
+                <p>600 kilometres away</p>
+                <p>20–25 Apr</p>
+                <p class="price">₹16,000 for 5 nights</p>
+                <p>Spacious 2BHK apartment in Banjara Hills. Close to shopping and dining.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Manali Cottage">
+            <div class="details">
+                <h3>Manali, Himachal Pradesh</h3>
+                <p>1,400 kilometres away</p>
+                <p>20–25 Apr</p>
+                <p class="price">₹27,500 for 5 nights</p>
+                <p>Rustic cottage with river views. Ideal for adventure seekers near Rohtang Pass.</p>
+            </div>
+        </div>
+    
+        <!-- Row 4 -->
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Kolkata Apartment">
+            <div class="details">
+                <h3>Kolkata, West Bengal</h3>
+                <p>1,650 kilometres away</p>
+                <p>1–6 May</p>
+                <p class="price">₹14,000 for 5 nights</p>
+                <p>Cozy 1BHK apartment in South Kolkata. Near Victoria Memorial and local eateries.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Rishikesh Homestay">
+            <div class="details">
+                <h3>Rishikesh, Uttarakhand</h3>
+                <p>1,300 kilometres away</p>
+                <p>1–6 May</p>
+                <p class="price">₹21,000 for 5 nights</p>
+                <p>Yoga retreat homestay by the Ganges. Perfect for spiritual seekers and adventurers.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Mysore Apartment">
+            <div class="details">
+                <h3>Mysore, Karnataka</h3>
+                <p>800 kilometres away</p>
+                <p>1–6 May</p>
+                <p class="price">₹17,500 for 5 nights</p>
+                <p>Modern 2BHK apartment near Mysore Palace. Great for exploring the city’s heritage.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Leh Homestay">
+            <div class="details">
+                <h3>Leh, Ladakh</h3>
+                <p>2,000 kilometres away</p>
+                <p>1–6 May</p>
+                <p class="price">₹30,000 for 5 nights</p>
+                <p>Traditional Ladakhi homestay. Experience high-altitude serenity and local culture.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Bangalore Apartment">
+            <div class="details">
+                <h3>Bangalore, Karnataka</h3>
+                <p>850 kilometres away</p>
+                <p>1–6 May</p>
+                <p class="price">₹20,000 for 5 nights</p>
+                <p>Stylish 2BHK apartment in Indiranagar. Perfect for a city break with great dining nearby.</p>
+            </div>
+        </div>
+    
+        <!-- Row 5 -->
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Kanyakumari Homestay">
+            <div class="details">
+                <h3>Kanyakumari, Tamil Nadu</h3>
+                <p>1,200 kilometres away</p>
+                <p>10–15 May</p>
+                <p class="price">₹18,000 for 5 nights</p>
+                <p>Seaside homestay with sunrise views. Watch the confluence of three seas.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Agra Apartment">
+            <div class="details">
+                <h3>Agra, Uttar Pradesh</h3>
+                <p>1,050 kilometres away</p>
+                <p>10–15 May</p>
+                <p class="price">₹16,500 for 5 nights</p>
+                <p>Cozy 2BHK apartment near the Taj Mahal. Perfect for history lovers.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Shillong Cottage">
+            <div class="details">
+                <h3>Shillong, Meghalaya</h3>
+                <p>2,100 kilometres away</p>
+                <p>10–15 May</p>
+                <p class="price">₹25,000 for 5 nights</p>
+                <p>Scenic cottage with views of rolling hills. Ideal for a Northeast adventure.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Ahmedabad Apartment">
+            <div class="details">
+                <h3>Ahmedabad, Gujarat</h3>
+                <p>500 kilometres away</p>
+                <p>10–15 May</p>
+                <p class="price">₹15,000 for 5 nights</p>
+                <p>Modern 1BHK apartment in Navrangpura. Close to Sabarmati Riverfront.</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="tag">Guest favourite</div>
+            <img src="https://plus.unsplash.com/premium_photo-1736056427064-9b1c015a71f7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVzeSUyMGFwcGFydG1lbnR8ZW58MHx8MHx8fDA%3D" alt="Varkala Villa">
+            <div class="details">
+                <h3>Varkala, Kerala</h3>
+                <p>1,100 kilometres away</p>
+                <p>10–15 May</p>
+                <p class="price">₹32,000 for 5 nights</p>
+                <p>Cliffside 3BHK villa with ocean views. Perfect for a beach and yoga retreat.</p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
