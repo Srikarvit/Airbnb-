@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listing Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .header .share-save {
+            display: flex;
+            gap: 10px;
+        }
+        .header .share-save button {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .header .share-save button:hover {
+            background-color: #f0f0f0;
+        }
+        .gallery {
+            margin: 20px 0;
+        }
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #666;
+        }
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .content {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        .left-section {
+            flex: 2;
+        }
+        .right-section {
+            flex: 1;
+        }
+        .title {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .location {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .details {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .booking-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+        }
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .rating {
+            margin: 10px 0;
+        }
+        .check-in-out {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .input-box {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .book-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff385c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .book-btn:hover {
+            background-color: #e31c5f;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .booking-card {
+                position: static;
+            }
+            .main-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="place-title">Loading...</h1>
+            <div class="share-save">
+                <button>Share</button>
+                <button>Save</button>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <div class="main-image" id="place-image">
+                <img id="place-image-src" src="" alt="Property Image">
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="left-section">
+                <div class="title" id="place-subtitle">Loading...</div>
+                <div class="location" id="place-location">Loading...</div>
+                <div class="details">
+                    <p id="place-specs">Loading...</p>
+                    <h2>About this place</h2>
+                    <p id="place-description">Loading...</p>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="booking-card">
+                    <div class="price" id="place-price">Loading...</div>
+                    <div class="rating" id="place-rating">Loading...</div>
+                    <div class="check-in-out">
+                        <div class="input-box" id="check-in">Loading...</div>
+                        <div class="input-box" id="check-out">Loading...</div>
+                    </div>
+                    <button class="book-btn">Reserve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadPlaceFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const place = {
+                title: urlParams.get('title') || 'Unknown Place',
+                subtitle: urlParams.get('subtitle') || 'Unknown Host',
+                location: urlParams.get('location') || 'Unknown Location',
+                specs: urlParams.get('specs') || 'Unknown Specs',
+                description: urlParams.get('description') || 'No description available.',
+                price: urlParams.get('price') || 'Price not available',
+                rating: urlParams.get('rating') || 'No rating available',
+                checkIn: urlParams.get('checkIn') || 'N/A',
+                checkOut: urlParams.get('checkOut') || 'N/A',
+                image: urlParams.get('image') || ''
+            };
+
+            document.getElementById('place-title').textContent = place.title;
+            document.getElementById('place-subtitle').textContent = place.subtitle;
+            document.getElementById('place-location').textContent = place.location;
+            document.getElementById('place-specs').textContent = place.specs;
+            document.getElementById('place-description').textContent = place.description;
+            document.getElementById('place-price').textContent = place.price;
+            document.getElementById('place-rating').textContent = place.rating;
+            document.getElementById('check-in').textContent = `Check-in: ${place.checkIn}`;
+            document.getElementById('check-out').textContent = `Checkout: ${place.checkOut}`;
+
+            const imageElement = document.getElementById('place-image-src');
+            if (place.image) {
+                imageElement.src = place.image;
+                imageElement.alt = place.title;
+            } else {
+                document.getElementById('place-image').textContent = 'No Image Available';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPlaceFromURL();
+        });
+    </script>
+</body>
+</html> 

@@ -1,4 +1,4 @@
-// Toggle Dropdown
+// Toggle Profile Dropdown
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
@@ -6,81 +6,15 @@ function toggleDropdown() {
     }
 }
 
-document.addEventListener('click', function(event) {
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('active');
+// Toggle Support Dropdown (Footer)
+function toggleSupportDropdown() {
+    const supportMenu = document.querySelector('.support-menu');
+    if (supportMenu) {
+        supportMenu.classList.toggle('active');
     }
-});
-
-// Filter Modal
-const filterButton = document.querySelector('.fil');
-const filterModal = document.querySelector('#filterModal');
-
-if (filterButton && filterModal) {
-    filterButton.addEventListener('click', function() {
-        filterModal.classList.toggle('active');
-    });
-
-    document.addEventListener('click', function(event) {
-        if (event.target === filterModal) {
-            filterModal.classList.remove('active');
-        }
-    });
 }
 
-function applyFilters() {
-    const minPrice = parseInt(document.querySelector('#minPrice').value) || 0;
-    const maxPrice = parseInt(document.querySelector('#maxPrice').value) || Infinity;
-    const guestFavourite = document.querySelector('#guestFavourite').checked;
-
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        const priceText = card.querySelector('.price').textContent;
-        const price = parseInt(priceText.replace(/[^0-9]/g, ''));
-        const hasGuestFavouriteTag = card.querySelector('.tag')?.textContent === 'Guest favourite';
-
-        const priceInRange = price >= minPrice && price <= maxPrice;
-        const matchesGuestFavourite = !guestFavourite || (guestFavourite && hasGuestFavouriteTag);
-
-        if (priceInRange && matchesGuestFavourite) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-
-    // Show/hide empty state message
-    const visibleCards = document.querySelectorAll('.card[style="display: block;"]');
-    const emptyState = document.querySelector('.empty-state');
-    if (visibleCards.length === 0) {
-        emptyState.style.display = 'block';
-    } else {
-        emptyState.style.display = 'none';
-    }
-
-    filterModal.classList.remove('active');
-}
-
-function clearFilters() {
-    document.querySelector('#minPrice').value = '';
-    document.querySelector('#maxPrice').value = '';
-    document.querySelector('#guestFavourite').checked = false;
-
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.style.display = 'block';
-    });
-
-    // Hide empty state message
-    const emptyState = document.querySelector('.empty-state');
-    emptyState.style.display = 'none';
-
-    filterModal.classList.remove('active');
-}
-
-// Login Modal Functionality
+// Open Login Modal
 function openLoginModal() {
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {
@@ -90,6 +24,7 @@ function openLoginModal() {
     }
 }
 
+// Close Login Modal
 function closeLoginModal() {
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {
@@ -98,6 +33,7 @@ function closeLoginModal() {
     }
 }
 
+// Handle Login Form Submission
 function handleLogin(event) {
     event.preventDefault();
 
@@ -120,96 +56,155 @@ function handleLogin(event) {
     closeLoginModal();
 }
 
-document.addEventListener('click', function(event) {
-    const loginModal = document.getElementById('loginModal');
-    if (event.target === loginModal) {
-        closeLoginModal();
-    }
-});
+// Apply Filters from Filter Modal
+function applyFilters() {
+    const minPrice = parseInt(document.querySelector('#minPrice').value) || 0;
+    const maxPrice = parseInt(document.querySelector('#maxPrice').value) || Infinity;
+    const guestFavourite = document.querySelector('#guestFavourite').checked;
+    const cards = document.querySelectorAll('.card');
 
-document.addEventListener('keydown', function(event) {
-    const loginModal = document.getElementById('loginModal');
-    if (event.key === 'Escape' && loginModal && loginModal.classList.contains('active')) {
-        closeLoginModal();
-    }
-});
+    cards.forEach(card => {
+        const priceText = card.querySelector('.price').textContent;
+        const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+        const hasGuestFavouriteTag = card.querySelector('.tag')?.textContent === 'Guest favourite';
 
-// Check for query parameter to open login modal on page load
+        const priceInRange = price >= minPrice && price <= maxPrice;
+        const matchesGuestFavourite = !guestFavourite || (guestFavourite && hasGuestFavouriteTag);
+
+        card.style.display = priceInRange && matchesGuestFavourite ? 'block' : 'none';
+    });
+
+    // Show/hide empty state message
+    const visibleCards = document.querySelectorAll('.card[style="display: block;"]');
+    const emptyState = document.querySelector('.empty-state');
+    emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
+
+    document.querySelector('#filterModal').classList.remove('active');
+}
+
+// Clear Filters in Filter Modal
+function clearFilters() {
+    document.querySelector('#minPrice').value = '';
+    document.querySelector('#maxPrice').value = '';
+    document.querySelector('#guestFavourite').checked = false;
+
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+
+    // Hide empty state message
+    const emptyState = document.querySelector('.empty-state');
+    emptyState.style.display = 'none';
+
+    document.querySelector('#filterModal').classList.remove('active');
+}
+
+// Initialize the Page
 document.addEventListener('DOMContentLoaded', function() {
+    // Open login modal if query parameter exists
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('openLogin') === 'true') {
         openLoginModal();
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 
-    // Navigation Icon Filtering
-    const iconContainers = document.querySelectorAll('.icon-container');
-    const cards = document.querySelectorAll('.card');
-
-    iconContainers.forEach(container => {
-        container.addEventListener('click', function() {
-            // Remove active class from all icon containers
-            iconContainers.forEach(c => c.classList.remove('active'));
-            // Add active class to the clicked container
-            this.classList.add('active');
-
-            const filter = this.getAttribute('data-filter');
-
-            if (filter === 'all') {
-                // Show all cards
-                cards.forEach(card => {
-                    card.style.display = 'block';
-                });
-            } else {
-                cards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    if (categories.includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-
-            // Show/hide empty state message
-            const visibleCards = document.querySelectorAll('.card[style="display: block;"]');
-            const emptyState = document.querySelector('.empty-state');
-            if (visibleCards.length === 0) {
-                emptyState.style.display = 'block';
-            } else {
-                emptyState.style.display = 'none';
-            }
-
-            document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+    // Dynamically set container margin-top based on header and nav heights
+    const header = document.querySelector('.header');
+    const nav = document.querySelector('.nav');
+    const container = document.querySelector('.container');
+    if (header && nav && container) {
+        const headerHeight = header.offsetHeight;
+        const navHeight = nav.offsetHeight;
+        const totalHeight = headerHeight + navHeight + 20; // Add 20px buffer
+        container.style.marginTop = `${totalHeight}px`;
+    }
 
     // Update copyright year dynamically
     const yearSpan = document.querySelector('.footer-left span:first-child');
     if (yearSpan) {
         yearSpan.textContent = `© ${new Date().getFullYear()} Airbnb, Inc.`;
     }
+
+    // Navigation Icon Filtering
+    const iconContainers = document.querySelectorAll('.icon-container');
+    const cards = document.querySelectorAll('.card');
+    iconContainers.forEach(container => {
+        container.addEventListener('click', function() {
+            // Highlight the selected category
+            iconContainers.forEach(c => c.classList.remove('active'));
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+            if (filter === 'all') {
+                cards.forEach(card => card.style.display = 'block');
+            } else {
+                cards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    card.style.display = categories.includes(filter) ? 'block' : 'none';
+                });
+            }
+
+            // Show/hide empty state message
+            const visibleCards = document.querySelectorAll('.card[style="display: block;"]');
+            const emptyState = document.querySelector('.empty-state');
+            emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
+
+            document.querySelector('.container').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Filter Modal Toggle
+    const filterButton = document.querySelector('.fil');
+    const filterModal = document.querySelector('#filterModal');
+    if (filterButton && filterModal) {
+        filterButton.addEventListener('click', function() {
+            filterModal.classList.toggle('active');
+        });
+    }
 });
 
-// Toggle Support Dropdown
-function toggleSupportDropdown() {
-    const supportDropdown = document.querySelector('.support-menu');
-    if (supportDropdown) {
-        supportDropdown.classList.toggle('active');
-    }
-}
-
+// Close Modals and Dropdowns on Outside Click
 document.addEventListener('click', function(event) {
+    // Close profile dropdown
+    const dropdown = document.querySelector('.dropdown');
+    if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+
+    // Close support dropdown
     const supportDropdown = document.querySelector('.support-dropdown');
     const supportMenu = document.querySelector('.support-menu');
     if (supportDropdown && supportMenu && !supportDropdown.contains(event.target)) {
         supportMenu.classList.remove('active');
     }
+
+    // Close filter modal
+    const filterModal = document.querySelector('#filterModal');
+    if (filterModal && event.target === filterModal) {
+        filterModal.classList.remove('active');
+    }
+
+    // Close login modal
+    const loginModal = document.getElementById('loginModal');
+    if (loginModal && event.target === loginModal) {
+        closeLoginModal();
+    }
 });
 
+// Close Modals and Dropdowns on Escape Key
 document.addEventListener('keydown', function(event) {
-    const supportMenu = document.querySelector('.support-menu');
-    if (event.key === 'Escape' && supportMenu && supportMenu.classList.contains('active')) {
-        supportMenu.classList.remove('active');
+    if (event.key === 'Escape') {
+        // Close login modal
+        const loginModal = document.getElementById('loginModal');
+        if (loginModal && loginModal.classList.contains('active')) {
+            closeLoginModal();
+        }
+
+        // Close support dropdown
+        const supportMenu = document.querySelector('.support-menu');
+        if (supportMenu && supportMenu.classList.contains('active')) {
+            supportMenu.classList.remove('active');
+        }
     }
 });
