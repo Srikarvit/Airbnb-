@@ -22,6 +22,25 @@ document.addEventListener('click', function(event) {
     }
 });
 
+function openLoginModal() {
+    document.getElementById('loginModal').classList.add('active');
+}
+
+function closeLoginModal() {
+    document.getElementById('loginModal').classList.remove('active');
+}
+
+function handleLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Placeholder for login logic (e.g., API call)
+    console.log("Log In:", { email, password });
+    alert("Login successful! Welcome back.");
+    closeLoginModal();
+}
+
 const filterButton = document.querySelector('.fil');
 const filterModal = document.querySelector('#filterModal');
 

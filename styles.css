@@ -25,6 +25,12 @@
         border-bottom: 1px solid #ddd;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
+        position: fixed;        
+        top: 0;                
+        left: 0;               
+        width: 100%;   
+        background-color: white;      
+        z-index: 1000;        
     }
 
     .left { 
@@ -70,7 +76,7 @@
     } 
     .where:hover { 
         background-color: #f0f0f0; 
-        border: 1px solid #ff385c;
+        /* border: 1px solid #ff385c; */
     } 
 
     .first { 
@@ -190,7 +196,76 @@
     .dropdown.active .dropdown-menu {
         display: block;
     }
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 70vh; 
+        padding: 20px;
+        margin-top: 12vh; /* Offset for fixed header */
+    }
     
+    .signup-form {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .signup-form h2 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .signup-form p {
+        margin: 0 0 20px;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    
+    .form-group input:focus {
+        border-color: #ff385c;
+        outline: none;
+    }
+    
+    .signup-footer {
+        margin-top: 20px;
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .signup-footer a {
+        color: #ff385c;
+        text-decoration: underline;
+    }
+    
+    .signup-footer a:hover {
+        color: #e60023;
+    }
 
     .nav { 
         display: flex; 
@@ -200,6 +275,7 @@
         border-bottom: 1px solid #ddd; 
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
         line-height: 5vh; 
+        margin-top: 12vh;
     } 
         
     .icn {
@@ -379,6 +455,96 @@
     background-color: #e60023;
 }
 
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-modal.active {
+    display: flex;
+}
+
+.login-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-content h3 {
+    margin: 0 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.login-content .form-group {
+    margin-bottom: 15px;
+}
+
+.login-content .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-content .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box波罗-sizing: border-box;
+}
+
+.login-content .form-group input:focus {
+    border-color: #ff385c;
+    outline: none;
+}
+
+.login-footer {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-footer a {
+    color: #ff385c;
+    text-decoration: underline;
+}
+
+.login-footer a:hover {
+    color: #e60023;
+}
+
+.close-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.close-btn:hover {
+    background-color: #e0e0e0;
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -393,12 +559,6 @@
         gap: 10px;
     }
 }
-    
-    .header .nav{
-        position: absolute;
-        top: 1;
-    }
-
     .container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

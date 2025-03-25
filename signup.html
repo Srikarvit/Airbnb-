@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign up for Airbnb to explore destinations and book unique stays.">
+    <meta name="keywords" content="Airbnb, sign up, travel, vacation rentals">
+    <title>Sign Up - Airbnb</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="left">
+            <a href="index.html"><img src="logo.png" alt="Airbnb logo" class="logo"></a>
+            <p class="brand-name">airbnb</p>
+        </div>
+        <div class="right">
+            <a href="index.html" class="home-btn">Back to Home</a>
+        </div>
+    </header>
+
+    <div class="signup-container">
+        <div class="signup-form">
+            <h1>Sign Up</h1>
+            <p>Join Airbnb to discover unique stays and experiences.</p>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="apply-btn">Sign Up</button>
+            </form>
+            <p class="signup-footer">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>
