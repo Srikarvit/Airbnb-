@@ -3,220 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AirBNB</title>
+    <title>Airbnb Listing</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
         }
+
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-        .header .share-save {
-            display: flex;
-            gap: 10px;
-        }
-        .header .share-save button {
-            padding: 8px 16px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            background: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .header .share-save button:hover {
-            background-color: #f0f0f0;
-        }
-        .gallery {
-            margin: 20px 0;
-        }
-        .main-image {
-            width: 60%;
+
+        .listing-image {
+            width: 100vh;
             height: 50vh;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            overflow-y: hidden;
-            color: #666;
-        }
-        .main-image img {
-            width: 100%;
-            height: 50vh;
+            border-radius: 12px;
             object-fit: cover;
-        }
-        .content {
-            display: flex;
-            gap: 40px;
-            margin-top: 20px;
-        }
-        .left-section {
-            flex: 2;
-        }
-        .right-section {
-            flex: 1;
-        }
-        .title {
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-        .location {
-            font-size: 14px;
-            color: #666;
             margin-bottom: 20px;
         }
-        .details {
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .booking-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            position: sticky;
-            top: 20px;
-        }
-        .price {
-            font-size: 22px;
+
+        h1 {
+            font-size: 32px;
             font-weight: bold;
+            margin-bottom: 10px;
         }
-        .rating {
-            margin: 10px 0;
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
         }
-        .check-in-out {
+
+        .details {
             display: flex;
-            gap: 10px;
-            margin: 20px 0;
+            flex-direction: column;
+            gap: 8px;
         }
-        .input-box {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+
+        .highlight {
+            font-weight: bold;
+            color: #ff385c;
         }
-        .book-btn {
-            width: 100%;
-            padding: 15px;
+
+        .reserve-btn {
+            padding: 15px 20px;
             background-color: #ff385c;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
         }
-        .book-btn:hover {
+
+        .reserve-btn:hover {
             background-color: #e31c5f;
         }
+
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                gap: 20px;
+            .listing-image {
+                height: 250px;
             }
-            .booking-card {
-                position: static;
-            }
-            .main-image {
-                height: 300px;
+
+            h1 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1 id="place-title">Loading...</h1>
-            <div class="share-save">
-                <button>Share</button>
-                <button>Save</button>
-            </div>
-        </div>
-
-        <div class="gallery">
-            <div class="main-image" id="place-image">
-                <img id="place-image-src" src="" alt="Property Image">
-            </div>
-        </div>
-
-        <div class="content">
-            <div class="left-section">
-                <div class="title" id="place-subtitle">Loading...</div>
-                <div class="location" id="place-location">Loading...</div>
-                <div class="details">
-                    <p id="place-specs">Loading...</p>
-                    <h2>About this place</h2>
-                    <p id="place-description">Loading...</p>
-                </div>
-            </div>
-
-            <div class="right-section">
-                <div class="booking-card">
-                    <div class="price" id="place-price">Loading...</div>
-                    <div class="rating" id="place-rating">Loading...</div>
-                    <div class="check-in-out">
-                        <div class="input-box" id="check-in">Loading...</div>
-                        <div class="input-box" id="check-out">Loading...</div>
-                    </div>
-                    <button class="book-btn">Reserve</button>
-                </div>
-            </div>
-        </div>
+        <img id="listingImage" alt="Listing Image" class="listing-image">
+        <h1 id="listingTitle"></h1>
+        <p id="listingSubtitle" class="highlight"></p>
+        <p><strong>Location:</strong> <span id="listingLocation"></span></p>
+        <p><strong>Specifications:</strong> <span id="listingSpecs"></span></p>
+        <p><strong>Description:</strong> <span id="listingDescription"></span></p>
+        <p><strong>Price:</strong> <span id="listingPrice"></span></p>
+        <p><strong>Rating:</strong> <span id="listingRating"></span></p>
+        <p><strong>Check-in:</strong> <span id="listingCheckIn"></span></p>
+        <p><strong>Check-out:</strong> <span id="listingCheckOut"></span></p>
+        <button class="reserve-btn" onclick="goToBilling()">Reserve Now</button>
     </div>
 
     <script>
-        function loadPlaceFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
+        const listing = {
+            title: urlParams.get('title'),
+            subtitle: urlParams.get('subtitle'),
+            location: urlParams.get('location'),
+            specs: urlParams.get('specs'),
+            description: urlParams.get('description'),
+            price: urlParams.get('price'),
+            rating: urlParams.get('rating'),
+            checkIn: urlParams.get('checkIn'),
+            checkOut: urlParams.get('checkOut'),
+            image: urlParams.get('image')
+        };
 
-            const place = {
-                title: urlParams.get('title') || 'Unknown Place',
-                subtitle: urlParams.get('subtitle') || 'Unknown Host',
-                location: urlParams.get('location') || 'Unknown Location',
-                specs: urlParams.get('specs') || 'Unknown Specs',
-                description: urlParams.get('description') || 'No description available.',
-                price: urlParams.get('price') || 'Price not available',
-                rating: urlParams.get('rating') || 'No rating available',
-                checkIn: urlParams.get('checkIn') || 'N/A',
-                checkOut: urlParams.get('checkOut') || 'N/A',
-                image: urlParams.get('image') || ''
-            };
+        document.getElementById('listingImage').src = listing.image;
+        document.getElementById('listingTitle').textContent = listing.title;
+        document.getElementById('listingSubtitle').textContent = listing.subtitle;
+        document.getElementById('listingLocation').textContent = listing.location;
+        document.getElementById('listingSpecs').textContent = listing.specs;
+        document.getElementById('listingDescription').textContent = listing.description;
+        document.getElementById('listingPrice').textContent = listing.price;
+        document.getElementById('listingRating').textContent = listing.rating;
+        document.getElementById('listingCheckIn').textContent = listing.checkIn;
+        document.getElementById('listingCheckOut').textContent = listing.checkOut;
 
-            document.getElementById('place-title').textContent = place.title;
-            document.getElementById('place-subtitle').textContent = place.subtitle;
-            document.getElementById('place-location').textContent = place.location;
-            document.getElementById('place-specs').textContent = place.specs;
-            document.getElementById('place-description').textContent = place.description;
-            document.getElementById('place-price').textContent = place.price;
-            document.getElementById('place-rating').textContent = place.rating;
-            document.getElementById('check-in').textContent = `Check-in: ${place.checkIn}`;
-            document.getElementById('check-out').textContent = `Checkout: ${place.checkOut}`;
-
-            const imageElement = document.getElementById('place-image-src');
-            if (place.image) {
-                imageElement.src = place.image;
-                imageElement.alt = place.title;
-            } else {
-                document.getElementById('place-image').textContent = 'No Image Available';
-            }
+        function goToBilling() {
+            const queryString = new URLSearchParams(listing).toString();
+            window.location.href = `billing.html?${queryString}`;
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            loadPlaceFromURL();
-        });
     </script>
 </body>
-</html> 
+</html>

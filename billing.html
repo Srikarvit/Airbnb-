@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing - Airbnb Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="billing-container">
+        <h1>Billing Details</h1>
+        <div class="billing-details">
+            <img id="listingImage" alt="Listing Image">
+            <div class="billing-info">
+                <h2 id="listingTitle"></h2>
+                <p id="listingSubtitle"></p>
+                <p id="listingLocation"></p>
+                <p id="listingSpecs"></p>
+                <p id="listingDescription"></p>
+                <p id="listingPrice"></p>
+                <p id="listingRating"></p>
+                <p id="listingCheckIn"></p>
+                <p id="listingCheckOut"></p>
+            </div>
+        </div>
+        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const listing = {
+            title: urlParams.get('title'),
+            subtitle: urlParams.get('subtitle'),
+            location: urlParams.get('location'),
+            specs: urlParams.get('specs'),
+            description: urlParams.get('description'),
+            price: urlParams.get('price'),
+            rating: urlParams.get('rating'),
+            checkIn: urlParams.get('checkIn'),
+            checkOut: urlParams.get('checkOut'),
+            image: urlParams.get('image')
+        };
+
+        document.getElementById('listingImage').src = listing.image;
+        document.getElementById('listingTitle').textContent = listing.title;
+        document.getElementById('listingSubtitle').textContent = listing.subtitle;
+        document.getElementById('listingLocation').textContent = listing.location;
+        document.getElementById('listingSpecs').textContent = listing.specs;
+        document.getElementById('listingDescription').textContent = listing.description;
+        document.getElementById('listingPrice').textContent = listing.price;
+        document.getElementById('listingRating').textContent = listing.rating;
+        document.getElementById('listingCheckIn').textContent = `Check-in: ${listing.checkIn}`;
+        document.getElementById('listingCheckOut').textContent = `Check-out: ${listing.checkOut}`;
+
+        function addToCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(listing);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${listing.title} has been added to your cart!`);
+            window.location.href = 'index.html'; 
+        }
+    </script>
+</body>
+</html>
