@@ -1,4 +1,3 @@
-// Toggle Profile Dropdown
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
