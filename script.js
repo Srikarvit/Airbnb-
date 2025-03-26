@@ -1,3 +1,41 @@
+
+    // Toggle language dropdown
+    function toggleLanguageDropdown() {
+        const dropdown = document.querySelector('.language-dropdown');
+        dropdown.classList.toggle('active');
+    }
+
+   // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const dropdown = document.querySelector('.language-dropdown');
+        const button = document.querySelector('.language-btn');
+        if (!dropdown.contains(event.target) && event.target !== button) {
+            dropdown.classList.remove('active');
+        }
+    });
+
+
+    // Handle language selection
+    document.querySelectorAll('.language-menu a').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            changeLanguage(selectedLang);
+            toggleLanguageDropdown(); // Close dropdown after selection
+        });
+    });
+
+    // Language change function (placeholder)
+    function changeLanguage(lang) {
+        console.log("Language changed to:", lang);
+        // Add your language change logic here (e.g., update UI, localStorage, or API call)
+        alert(`Language set to: ${lang}`);
+    }
+
+    // Attach toggle to button
+    document.querySelector('.language-btn').addEventListener('click', toggleLanguageDropdown);
+
+
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown');
     if (dropdown) {
@@ -5,7 +43,6 @@ function toggleDropdown() {
     }
 }
 
-// Toggle Support Dropdown (Footer)
 function toggleSupportDropdown() {
     const supportMenu = document.querySelector('.support-menu');
     if (supportMenu) {
@@ -13,7 +50,6 @@ function toggleSupportDropdown() {
     }
 }
 
-// Open Login Modal
 function openLoginModal() {
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {
@@ -23,7 +59,6 @@ function openLoginModal() {
     }
 }
 
-// Close Login Modal
 function closeLoginModal() {
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {

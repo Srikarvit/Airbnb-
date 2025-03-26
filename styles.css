@@ -75,10 +75,7 @@
         margin-right: 10px; 
         cursor: pointer; 
         transition: background-color 0.3s ease; 
-    } 
-    .where:hover { 
-        background-color: #f0f0f0; 
-    } 
+    }
 
     .first { 
         font-weight: bold; 
@@ -86,8 +83,11 @@
     } 
 
     .second { 
-        font-size: 12px; 
-        color: #666; 
+        font-size: 1 rem; 
+        color: black; 
+        border: none;
+        outline: none;
+        
     } 
 
     .search-icon { 
@@ -126,16 +126,72 @@
         background-color: #f0f0f0; 
     } 
 
-    .world-icon { 
-        height: 24px; 
-        cursor: pointer; 
-        border-radius: 50%; 
-        padding: 5px; 
-        transition: background-color 0.3s ease; 
-    } 
-    .world-icon:hover { 
-        background-color: #f0f0f0; 
-    } 
+    .language-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .language-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-btn .world-icon {
+        height: 24px;
+        padding: 5px;
+    }
+    
+    .language-btn:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .language-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        min-width: 200px;
+        max-height: 50vh;
+        overflow-y: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 10px 0;
+    }
+    
+    .language-menu h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        padding: 10px 15px;
+        margin: 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .language-menu a {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #222;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .language-menu a:hover {
+        background-color: #f9f9f9;
+    }
+    
+    .language-dropdown.active .language-menu {
+        display: block;
+    }
 
     .profile { 
         background-color: white; 
@@ -379,8 +435,8 @@
 }
 
 .about-container {
-    margin-top: 70px; /* Offset for fixed header */
-    padding: 20px 17vh; /* Matches .container padding */
+    margin-top: 70px; 
+    padding: 20px 17vh; 
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -587,7 +643,7 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        min-width: 60px;
+        min-width: 9vh;
         text-align: center;
         cursor: pointer; 
         transition: all 0.3s ease;
@@ -596,7 +652,7 @@
 .icon-container img {
     width: 4vh;
     height: 4vh;
-    padding: 5px;
+    padding: 1vh;
     object-fit: contain;
     transition: transform 0.3s ease, border-bottom 0.3s ease;
 }
@@ -609,12 +665,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: auto;
-    gap: 40px;
-    padding: 20px;
-    margin-top: 180px;
-    margin-bottom: 60px;
-    margin-left: 20px;
-    margin-right: 20px;
+    gap: 7vh;
+    padding: 3vh;
+    margin-top: 19vh;
+    margin-bottom: 5vh;
+    margin-left: 3vh;
+    margin-right: 3vh;
 }
 
 @media (max-width: 768px) {

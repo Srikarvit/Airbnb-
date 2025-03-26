@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Host your home on Airbnb and earn money. Join millions of hosts worldwide.">
+    <meta name="keywords" content="Airbnb, host, earn money, vacation rentals">
+    <title>Host Your Home - Airbnb</title>
+    <link rel="stylesheet" href="host-styles.css">
+</head>
+
+<style>
+body {
+    font-family: sans-serif, 'Segoe UI', Tahoma, Verdana;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    color: rgb(232, 48, 85);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 20px;
+}
+
+.home-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.host-container {
+    margin-top: 70px; 
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #f7f7f7, #fff);
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff385c;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #e60023;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.benefit-card {
+    text-align: center;
+}
+
+.benefit-card img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.benefit-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.how-it-works {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.step {
+    max-width: 300px;
+    text-align: left;
+}
+
+.step-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #ff385c;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.step h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    color: #555;
+}
+
+.protection {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.protection h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.protection p {
+    font-size: 16px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.protection img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+</style>
+<body>
+    <header class="header">
+        <div class="left">
+            <a href="index.html"><img src="logo.png" alt="Airbnb logo" class="logo"></a>
+            <p class="brand-name">airbnb</p>
+        </div>
+        <div class="right">
+            <a href="index.html" class="home-btn">Back to Home</a>
+        </div>
+    </header>
+
+    <main class="host-container">
+        <section class="hero">
+            <h1>Your home could make money with Airbnb</h1>
+            <p>Join over 5 million hosts from around the world. It’s easy to get started and now you can find a co-host to do the hosting for you.</p>
+            <a href="#start" class="cta-btn">Start Hosting</a>
+        </section>
+
+        <section class="benefits">
+            <div class="benefit-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop" alt="Cozy home">
+                <h2>Is my place right for Airbnb?</h2>
+                <p>Airbnb guests are interested in all kinds of places – spare rooms, flats, houses, holiday homes, even treehouses.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&auto=format&fit=crop" alt="Calendar">
+                <h2>Do I have to host all the time?</h2>
+                <p>No – you control your calendar. Host once a year, a few nights a month, or more often.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://images.unsplash.com/photo-1609768097098-7d5d3e89b7ea?q=80&w=600&auto=format&fit=crop" alt="Shield">
+                <h2>How am I protected?</h2>
+                <p>AirCover for Hosts provides top-to-bottom protection every time you host your home on Airbnb.</p>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How to Get Started</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3>Tell us about your home</h3>
+                    <p>Describe your space, take some photos, and add what makes it unique.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3>Set your preferences</h3>
+                    <p>Choose your availability, pricing, and hosting style.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3>Welcome your first guest</h3>
+                    <p>Get ready with a clean space and start earning!</p>
+                </div>
+            </div>
+            <a href="#start" class="cta-btn">Start Your Listing</a>
+        </section>
+
+        <section class="protection">
+            <h2>Top-to-Bottom Protection</h2>
+            <p>AirCover for Hosts is included every time you host, offering damage protection and liability coverage.</p>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Protected home">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Airbnb Clone. All rights reserved.</p>
+    </footer>
+</body>
+</html>
