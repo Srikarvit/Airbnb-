@@ -73,7 +73,6 @@ function applyFilters() {
         card.style.display = priceInRange && matchesGuestFavourite ? 'block' : 'none';
     });
 
-    // Show/hide empty state message
     const visibleCards = document.querySelectorAll('.card[style="display: block;"]');
     const emptyState = document.querySelector('.empty-state');
     emptyState.style.display = visibleCards.length === 0 ? 'block' : 'none';
