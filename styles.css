@@ -378,6 +378,166 @@
     background-color: #e60023;
 }
 
+.about-container {
+    margin-top: 70px; /* Offset for fixed header */
+    padding: 20px 17vh; /* Matches .container padding */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff385c;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.mission {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.mission h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mission p {
+    font-size: 16px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.story {
+    padding: 40px 0;
+}
+
+.story h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.story-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.team {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.team h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.team-member img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.queries p{
+    color:#555;
+}
+
+.cta {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.cta h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cta p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.cta .apply-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 16px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 20px;
+    }
+    .story-content {
+        flex-direction: column;
+    }
+    .story-image img {
+        max-width: 100%;
+    }
+}
+
 .nav { 
     display: flex; 
     justify-content: space-between; 
